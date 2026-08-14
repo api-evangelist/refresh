@@ -12,12 +12,15 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/refresh.png
 name: refresh
-description: Refresh (refresh.si) is a digital marketing agency focused on building
-  and growing digital brands. It was surfaced as a portfolio company of Slow Ventures
-  and added to the API Evangelist network for enrichment. Enrichment probing in July
-  2026 found a minimal public web footprint with no API, developer portal, documentation,
-  or SDK surface; the profile is retained as a company lead with domain security
-  captured from live TLS/DNS probes.
+description: Refresh (refresh.si) is a Slovenian digital marketing agency focused on
+  building and growing digital brands. It was surfaced as a portfolio company of Slow
+  Ventures and added to the API Evangelist network for enrichment. Contract discovery
+  re-run on 2026-08-13 found the entire public footprint is a single WordPress splash
+  page carrying a 2019 copyright, with two URLs in its sitemap and no blog posts —
+  no API, developer portal, documentation, SDK, package, changelog or pricing surface,
+  and HTTP 404 on /openapi.json, /llms.txt and every /.well-known/ discovery path. The
+  profile is retained as a company lead with domain security captured from live TLS/DNS
+  probes.
 url: https://raw.githubusercontent.com/api-evangelist/refresh/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -27,7 +30,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-13'
 tags:
 - Company
 - Digital Marketing
@@ -45,8 +48,30 @@ common:
   url: security/refresh-domain-security.yml
 - type: Website
   url: https://refresh.si
+- type: LLMsTxt
+  url: llms/refresh-llms.txt
 x-enrichment:
-  date: '2026-07-21'
+  date: '2026-08-13'
   status: minimal
-  artifacts_added: 1
+  artifacts_added: 4
   pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Refresh is a marketing agency whose entire public surface is one WordPress splash page
+    ("WE BUILD AND GROW DIGITAL BRANDS", (c)2019) with a mailto contact — its Yoast sitemap
+    lists exactly two URLs, both last modified 2019-05-24, and wp/v2/posts returns an empty
+    array, so there is no product, portal or documentation for an API to sit behind.
+  evidence:
+  - url: https://refresh.si/
+    status: 200
+  - url: https://refresh.si/page-sitemap.xml
+    status: 200
+  - url: https://refresh.si/openapi.json
+    status: 404
+  - url: https://refresh.si/.well-known/agent-card.json
+    status: 404
+  - url: https://refresh.si/.well-known/security.txt
+    status: 404
+  checked: '2026-08-13'
