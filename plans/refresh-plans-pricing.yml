@@ -1,0 +1,17 @@
+generated: '2026-08-13'
+method: searched
+source: https://refresh.si/
+plan_count: 0
+plans: []
+note: >-
+  Refresh publishes no pricing, plans or packages of any kind. The entire public site is a
+  single splash page ("WE BUILD AND GROW DIGITAL BRANDS", (c)2019) plus one logo page; the
+  only commercial call to action is a mailto:info@refresh.si contact link. There is no
+  products page, no service tiers and no request-a-quote form. No Plans pointer is wired in
+  apis.yml — an empty plans file records an absence and must not read as a published one.
+evidence:
+- url: https://refresh.si/
+  status: 200
+- url: https://refresh.si/page-sitemap.xml
+  status: 200
+  note: Sitemap lists only / and /refresh/ — there is no pricing page to search.

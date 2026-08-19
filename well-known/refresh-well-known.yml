@@ -1,0 +1,46 @@
+generated: '2026-08-13'
+method: probed
+source: live GET probes of https://refresh.si/.well-known/*
+host: https://refresh.si
+documents:
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+- path: /.well-known/agent-card.json
+  status: 404
+- path: /.well-known/agent.json
+  status: 404
+- path: /llms.txt
+  status: 404
+- path: /openapi.json
+  status: 404
+- path: /robots.txt
+  status: 200
+  note: >-
+    WordPress default robots.txt (disallows /wp-admin/, allows admin-ajax.php). Not a
+    discovery document; no pointer emitted.
+- path: /sitemap.xml
+  status: 200
+  note: >-
+    Yoast SEO sitemap index listing exactly two URLs, both last modified 2019-05-24.
+result: none
+note: >-
+  Every /.well-known/ path returns a real HTTP 404 (WordPress 404 template, not a soft-200
+  SPA shell). NO WellKnown or SecurityTxt pointer is emitted — this file records an absence,
+  not a presence.
+observed_surface:
+- url: https://refresh.si/wp-json/
+  status: 200
+  content_type: application/json
+  note: >-
+    WordPress core REST API route index (82KB), enabled by default on every WordPress
+    install; namespaces oembed/1.0, yoast/v1, content-forms/v1, themeisle-*, wp/v2.
+    Deliberately NOT recorded as an API this company publishes: it is a framework default
+    on a brochure site, not a developer program, and wp/v2/posts returns an empty array.

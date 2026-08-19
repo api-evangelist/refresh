@@ -1,0 +1,16 @@
+generated: '2026-08-13'
+method: searched
+source: https://refresh.si/
+limit_count: 0
+rate_limits: []
+note: >-
+  No rate limits are documented because there is no public API to limit. Refresh publishes
+  no developer portal, no API reference and no machine-readable contract; contract discovery
+  on 2026-08-13 returned 404 for /openapi.json, /llms.txt and every /.well-known/ path. No
+  RateLimits pointer is wired in apis.yml — an empty file records an absence and must not be
+  read as a published runtime signal.
+evidence:
+- url: https://refresh.si/openapi.json
+  status: 404
+- url: https://refresh.si/
+  status: 200
