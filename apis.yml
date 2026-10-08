@@ -55,6 +55,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Plans
+  url: plans/refresh-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/refresh-rate-limits.yml
 - type: DomainSecurity
   url: security/refresh-domain-security.yml
 - type: Website
